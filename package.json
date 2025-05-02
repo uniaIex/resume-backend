@@ -1,0 +1,16 @@
+{
+    "name": "baas-cli",
+    "private" : true,
+    "version": "0.0.1",
+    "description": "A CLI for Baas",
+    "scripts": {
+        "dev": "npm docker:start || npm docker:run",
+        "docker:build": "docker build -t baas-cli .",
+        "docker:run": "docker run --name baas-cli -d -p 8090:8090 -v ./pb_data:/pb/pb_data -v ./pb_migration:/pb/pb_migration -v ./pb_hooks:/pb/pb_hooks baas-cli",
+        "docker:start": "docker start baas-cli",
+        "docker:stop": "docker stop baas-cli",
+        "docker:rm": "docker rm baas-cli"
+    },
+    "author": "Alexandru-Daniel Baducu",
+    "license": "MIT"
+}
